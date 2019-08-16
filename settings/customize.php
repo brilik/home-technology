@@ -43,7 +43,9 @@ $themeAR->add_option("contact", "telegramnic",  "Telegram ник", "");
 */
 
 register_nav_menus(array(
-    'header' => esc_html__('Меню в шапке', 'ar-tema'),
-    'header_cat' => esc_html__('Меню категорий в шапке', 'ar-tema'),
-    'footer' => esc_html__('Меню в подвале', 'ar-tema'),
+    'header_main' => esc_html__('Меню в шапке - главное', 'ar-tema'),
+    'header_burger' => esc_html__('Меню в шапке - бургер', 'ar-tema'),
+    'page_404' => esc_html__('Меню на странице 404', 'ar-tema'),
+    'footer_pages' => esc_html__('Меню в подвале - страницы', 'ar-tema'),
+    'footer_socials' => esc_html__('Меню в подвале - социальные', 'ar-tema'),
 ));

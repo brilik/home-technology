@@ -1,1 +1,3 @@
-<?php ar_the_view("footer");
+<?php
+ar_the_view("header");
+ar_the_view("footer");
