@@ -20,7 +20,8 @@
                     </div>
                     <div class="call-us__info">
                         <div class="call-us__title">Свяжитесь с нами:</div>
-                        <a href="tel:+74952300302" class="call-us__link">+7 (495) 230-03-02</a>
+                        <a href="tel:+<?= $themeAR->get_clear_phone($themeAR->get_option("header_phone")); ?>"
+                           class="call-us__link"><?= $themeAR->get_option("header_phone"); ?></a>
                     </div>
                 </div>
                 <div class="form-search">
@@ -63,27 +64,12 @@
                     </div>
                     <div class="call-us__info">
                         <div class="call-us__title">Свяжитесь с нами:</div>
-                        <a href="tel:+74952300302" class="call-us__link">+7 (495) 230-03-02</a>
+                        <a href="tel:+<?= $themeAR->get_clear_phone($themeAR->get_option("header_phone")); ?>"
+                           class="call-us__link"><?= $themeAR->get_option("header_phone"); ?></a>
                     </div>
                 </div>
                 <div class="social-list-wrap">
-                    <ul class="social-list">
-                        <li class="social-list__item">
-                            <a href="#" class="social-list__link">
-                                <i class="icon-inst"></i>
-                            </a>
-                        </li>
-                        <li class="social-list__item">
-                            <a href="#" class="social-list__link">
-                                <i class="icon-vk"></i>
-                            </a>
-                        </li>
-                        <li class="social-list__item">
-                            <a href="#" class="social-list__link">
-                                <i class="icon-fb"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    <?php ar_the_view('social', array('position'=>'header')); ?>
                 </div>
             </div>
         </div>

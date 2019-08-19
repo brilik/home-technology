@@ -24,3 +24,5 @@ function glp_navigation_template( $template, $class ){
     </nav>';
  return $template;
 }
+
+add_theme_support( 'post-thumbnails', array( 'feedback' ) );

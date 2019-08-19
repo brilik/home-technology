@@ -36,19 +36,19 @@ function ar_theme_name_scripts()
     wp_deregister_style('elementor-common');
     wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery-3.0.0.min.js', array(), null, false);
 
-    if( is_404() ) {
-        wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/style.css', array(), null);
+    wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/style.css', array(), null);
 
-        wp_enqueue_script('jquery');
-        wp_enqueue_script('domtech-jquery-migrate', get_template_directory_uri() . '/assets/js/jquery-migrate-1.4.1.min.js', array('jquery'), null, true);
-        wp_enqueue_script('domtech-jquery-fancybox', get_template_directory_uri() . '/assets/js/components/jquery.fancybox.min.js', array(), null, true);
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('domtech-jquery-migrate', get_template_directory_uri() . '/assets/js/jquery-migrate-1.4.1.min.js', array('jquery'), null, true);
+    wp_enqueue_script('domtech-jquery-fancybox', get_template_directory_uri() . '/assets/js/components/jquery.fancybox.min.js', array(), null, true);
+    if( is_404() ) {
         wp_enqueue_script('domtech-jquery-barrating', get_template_directory_uri() . '/assets/js/components/jquery.barrating.min.js', array(), null, true);
-        wp_enqueue_script('domtech-mask', get_template_directory_uri() . '/assets/js/components/mask.js', array(), null, true);
-        wp_enqueue_script('domtech-wow', get_template_directory_uri() . '/assets/js/components/wow.min.js', array(), null, true);
-        wp_enqueue_script('domtech-slick', get_template_directory_uri() . '/assets/js/components/slick.min.js', array(), null, true);
-        wp_enqueue_script('domtech-datepicker', get_template_directory_uri() . '/assets/js/components/datepicker.min.js', array(), null, true);
-        wp_enqueue_script('domtech-custom', get_template_directory_uri() . '/assets/js/custom.js', array(), null, true);
     }
+    wp_enqueue_script('domtech-mask', get_template_directory_uri() . '/assets/js/components/mask.js', array(), null, true);
+    wp_enqueue_script('domtech-wow', get_template_directory_uri() . '/assets/js/components/wow.min.js', array(), null, true);
+    wp_enqueue_script('domtech-slick', get_template_directory_uri() . '/assets/js/components/slick.min.js', array(), null, true);
+    wp_enqueue_script('domtech-datepicker', get_template_directory_uri() . '/assets/js/components/datepicker.min.js', array(), null, true);
+    wp_enqueue_script('domtech-custom', get_template_directory_uri() . '/assets/js/custom.js', array(), null, true);
 }
 
 

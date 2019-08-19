@@ -10,14 +10,14 @@ UserAction = function() {
     $form.send(); 
   }
 
-  this.anketa_add = function($name, $age, $city, $phone, $info) {
+  this.anketa_add = function($name, $phone, $date, $comment, $check) {
     $form = new FormAjax("anketaadd" , "review_form");  
   
     $form.add_param("name", $name);
-    $form.add_param("age", $age);
-    $form.add_param("city", $city);
     $form.add_param("phone", $phone);
-    $form.add_param("info", $info);
+    $form.add_param("date", $date);
+    $form.add_param("comment", $comment);
+    $form.add_param("check", $check);
     $(".file_upload").each(function(  $i) { 
       $form.add_file("file_"+$i, $(this).attr("id")); 
     });
@@ -60,19 +60,19 @@ jQuery(document).ready(function(){
   });
   
   
-  $(".anketa_add").click(function(){
+  $(".js-feedbackCallForm").click(function(){
     useraction = new UserAction(); 
-    useraction.anketa_add( 
-      $("#anketa_name").val(), 
-      $("#anketa_age").val() , 
-      $("#anketa_city").val() , 
-      $("#anketa_phone").val() , 
-      $("#review_info").val() , 
-      $(this).data("id") 
-    );  
+    useraction.anketa_add(
+      $("#call_name").val(),
+      $("#call_phone").val(),
+      $("#call_date").val(),
+      $("#call_comment").val(),
+      $("#check").val(),
+      $(this).data("id")
+    );
     return false;
   });
-  
+
   $("#bra-filter .bra-value").click(function(){
     set_filter();
   });

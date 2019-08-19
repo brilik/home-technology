@@ -9,6 +9,9 @@
     <meta name='description' content="" />
     <meta name="keywords" content="" />
     <meta name="it-rating" content="it-rat-cd303c3f80473535b3c667d0d67a7a11" />
+    <?php if( is_home() || is_front_page() ): ?>
+    <meta name="cmsmagazine" content="3f86e43372e678604d35804a67860df7" />
+    <?php endif; ?>
     <link rel="icon" type="image/x-icon" href="<?=get_template_directory_uri();?>/favicon.ico" />
     <?php wp_head(); ?>
 </head>
