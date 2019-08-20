@@ -204,3 +204,23 @@ class PageMainSectionQuestionWidgetAR extends ElementorWidgetAR
 }
 
 \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new PageMainSectionQuestionWidgetAR);
+
+
+class PageInteriorWidgetAR extends ElementorWidgetAR
+{
+
+    public function setup_settings()
+    {
+        $this->name = "page-interior__main";
+        $this->title = "Страница Интерьеров (каталог)";
+        $this->icon = "fa fa-address-card-o";
+
+        $this->fields = array(
+            array("title_present", "Заголовок подарочной секции", "textarea"),
+            array("title_discount", "Заголовок скидочной секции", "textarea"),
+            array("number_discount", "Процент", "text"),
+        );
+    }
+}
+
+\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new PageInteriorWidgetAR);
