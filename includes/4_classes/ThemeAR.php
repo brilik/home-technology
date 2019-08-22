@@ -13,17 +13,17 @@ class ThemeAR
         add_action('customize_register', array($this, 'theme_customize'), 1, 11);
     }
 
-    public function get_dir_path()
-    {
-        return get_parent_theme_file_path();
-    }
-
     public function init_themes()
     {
         include $this->get_dir_path() . "/settings/roles.php";
         include $this->get_dir_path() . "/settings/data_types.php";
         include $this->get_dir_path() . "/settings/customize.php";
         include $this->get_dir_path() . "/settings/crons.php";
+    }
+
+    public function get_dir_path()
+    {
+        return get_parent_theme_file_path();
     }
 
     function theme_customize($customizer)
@@ -272,5 +272,52 @@ class ThemeAR
         $pattern = ($plus) ? '![^0-9]!' : '![^0-9]+!';
 
         return preg_replace($pattern, '', $phone);
+    }
+
+
+    /**
+     * Конвертирует "hex to rgb" \ "rgb to hex" в зависимости от переданного формата и добовляем opacity.
+     *
+     * @param string $color
+     * @param bool $opacity
+     * @return array|string|string[]|null
+     */
+    public function convert_color(string $color, bool $opacity = false)
+    {
+        $out = 'Need hex or rgb';
+        $hex = '#';
+        $rgb = 'rgb';
+
+        if (strripos($color, $hex) !== false) {
+            list($r, $g, $b) = sscanf($color, "#%02x%02x%02x");
+
+            if ($opacity === true)
+                $out = $this->rgb_2_rgba("rgb($r,$g,$b)"); //"rgba($r, $g, $b, .2)";
+            else
+                $out = "rgb ($r,$g,$b)";
+        }
+
+        if (strripos($color, $rgb) !== false) {
+            $color = preg_replace('/[a-z_()]/i', '', $color);
+            $rgb = explode(',', $color);
+            $out = sprintf("#%02x%02x%02x", $rgb[0], $rgb[1], $rgb[2]);
+        }
+
+        return $out;
+    }
+
+    /**
+     * Изменяем rgb() в rgba() и добовляем opacity.
+     *
+     * @param string $rgb
+     * @param string $opacity
+     * @return array|string|string[]|null
+     */
+    public function rgb_2_rgba(string $rgb, string $opacity = '.2')
+    {
+        $rgb = preg_replace('/[a-z_()]/i', '', $rgb);
+        $rgb = explode(',', $rgb);
+        $rgb = "rgba($rgb[0],$rgb[1],$rgb[2], $opacity)";
+        return $rgb;
     }
 }

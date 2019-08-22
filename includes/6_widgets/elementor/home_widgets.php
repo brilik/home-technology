@@ -224,3 +224,27 @@ class PageInteriorWidgetAR extends ElementorWidgetAR
 }
 
 \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new PageInteriorWidgetAR);
+
+
+class PageAbourWidgetAR extends ElementorWidgetAR
+{
+
+    public function setup_settings()
+    {
+        $this->name = "page-company__main";
+        $this->title = "Страница Компании";
+        $this->icon = "fa fa-address-card-o";
+
+        $this->fields = array(
+            array("img", "Картинка", "image"),
+            array("desc", "О нас", "textarea"),
+            array("item", "Реквизиты", "repeater",
+                [
+                    array("requisite","Текст","text"),
+                ],
+                'text'),
+        );
+    }
+}
+
+\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new PageAbourWidgetAR);
