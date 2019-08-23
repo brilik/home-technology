@@ -103,7 +103,7 @@ class ElementorWidgetAR extends \Elementor\Widget_Base
                 $type = \Elementor\Controls_Manager::SELECT2;
                 $input_type = "";
                 $options = $field_item[3];
-                $multiple = $field_item[4];
+                $multiple = true;
                 break;
             case "textarea":
                 $type = \Elementor\Controls_Manager::TEXTAREA;
