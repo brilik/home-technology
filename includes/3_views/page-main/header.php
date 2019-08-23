@@ -1,4 +1,4 @@
-<header class="box-header">
+<header class="box-header<?= ( is_front_page() || is_home() )? '' : ' light'; ?>">
     <div class="wrapper">
         <div class="box-header__wrap">
             <div class="header-logo">
