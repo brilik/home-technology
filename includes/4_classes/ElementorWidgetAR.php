@@ -41,6 +41,7 @@ class ElementorWidgetAR extends \Elementor\Widget_Base {
     $input_type = "text";
     $options = [];
     $fields = [];
+    $multiple = false;
     
     switch( $field_item[2] ) {
       case "select":
@@ -52,6 +53,7 @@ class ElementorWidgetAR extends \Elementor\Widget_Base {
         $type = \Elementor\Controls_Manager::SELECT2;
         $input_type = "";
         $options = $field_item[3];
+        $multiple = $field_item[4];
         break; 
       case "textarea":
         $type = \Elementor\Controls_Manager::TEXTAREA;
@@ -89,7 +91,8 @@ class ElementorWidgetAR extends \Elementor\Widget_Base {
         'input_type' => $input_type,
         'placeholder' => '',
         'options' => $options,
-        'fields' => $fields
+        'fields' => $fields,
+        'multiple' => $multiple
       ]
     ); 
     
