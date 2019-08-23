@@ -248,3 +248,36 @@ class PageAbourWidgetAR extends ElementorWidgetAR
 }
 
 \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new PageAbourWidgetAR);
+
+
+class PageFaqWidgetAR extends ElementorWidgetAR
+{
+
+    public function setup_settings()
+    {
+        $this->name = "page-faq__main";
+        $this->title = "Страница FAQ";
+        $this->icon = "fa fa-address-card-o";
+
+        $wp_query = new WP_Query;
+        $items = $wp_query->query(["post_type" => "faq", "posts_per_page" => -1]);
+        $options = [];
+        foreach ($items as $item) {
+            $options[$item->ID] = $item->post_title;
+        }
+
+        $this->fields = array(
+            array("items",
+                "Список",
+                "repeater",
+                [
+                    array("title", "Заголовок", "text"),
+                    array("faq", "Вопрос", "multiselect", $options),
+                ],
+            )
+
+        );
+    }
+}
+
+\Elementor\Plugin::instance()->widgets_manager->register_widget_type(new PageFaqWidgetAR);
